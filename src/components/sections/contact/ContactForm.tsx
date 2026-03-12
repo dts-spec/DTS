@@ -202,10 +202,10 @@ export default function ContactForm() {
                     Email
                   </h3>
                   <a
-                    href="mailto:hello@dts.com"
+                    href="mailto:joshua@digitaltechnologysolutions.co"
                     className="text-foreground hover:text-accent transition-colors"
                   >
-                    hello@dts.com
+                    joshua@digitaltechnologysolutions.co
                   </a>
                 </div>
 
