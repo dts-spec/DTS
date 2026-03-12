@@ -26,6 +26,9 @@ export default function CaseStudiesHero() {
               How mid-size companies are using AI platforms to transform
               marketing, operations, and customer intelligence.
             </p>
+            <p className="text-sm text-muted/70 italic mt-4">
+              Names of businesses have been changed for privacy and confidentiality.
+            </p>
           </FadeIn>
         </div>
       </Container>
