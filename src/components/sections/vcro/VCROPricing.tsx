@@ -90,6 +90,9 @@ export default function VCROPricing() {
             <Button href="/contact" size="lg">
               Get My Custom Quote
             </Button>
+            <p className="text-sm text-muted-foreground mt-4">
+              100% free &middot; No commitment &middot; Typically responds within 4 hours
+            </p>
           </div>
         </FadeIn>
       </div>

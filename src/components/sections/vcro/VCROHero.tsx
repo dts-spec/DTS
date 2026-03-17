@@ -44,9 +44,37 @@ export default function VCROHero() {
             See How It Works
           </Button>
         </div>
+        <p className="text-xs text-muted-foreground mt-4">
+          100% free &middot; No commitment &middot; Takes 30 minutes
+        </p>
       </FadeIn>
 
-      <FadeIn delay={0.35} className="w-full max-w-[960px] mt-16">
+      {/* Micro-proof stats */}
+      <FadeIn delay={0.3}>
+        <div className="flex flex-wrap items-center justify-center gap-8 mt-10 py-5 px-8 rounded-2xl border border-border/50 bg-card/30">
+          <div className="text-center">
+            <span className="block text-2xl font-display text-accent tracking-wide">85-95%</span>
+            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Forecast Accuracy</span>
+          </div>
+          <div className="w-px h-8 bg-border hidden sm:block" />
+          <div className="text-center">
+            <span className="block text-2xl font-display text-accent tracking-wide">40+</span>
+            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">Integrations</span>
+          </div>
+          <div className="w-px h-8 bg-border hidden sm:block" />
+          <div className="text-center">
+            <span className="block text-2xl font-display text-accent tracking-wide">3-6 Wks</span>
+            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">To Deploy</span>
+          </div>
+          <div className="w-px h-8 bg-border hidden sm:block" />
+          <div className="text-center">
+            <span className="block text-2xl font-display text-accent tracking-wide">7</span>
+            <span className="text-[11px] text-muted-foreground uppercase tracking-wider">AI Agents</span>
+          </div>
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={0.4} className="w-full max-w-[960px] mt-16">
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-3.5">
           <WidgetRevenue />
           <WidgetPipeline />

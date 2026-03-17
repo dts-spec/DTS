@@ -21,9 +21,9 @@ export default function VCROPage() {
   return (
     <>
       <VCROHero />
+      <VCROIntegrations />
       <VCROMission />
       <VCROWhyChoose />
-      <VCROIntegrations />
       <VCROAgents />
       <VCROProcess />
       <VCROTestimonials />
