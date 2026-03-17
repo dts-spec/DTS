@@ -35,15 +35,41 @@ export default function ContactForm() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (step < TOTAL_STEPS) {
       setStep(step + 1);
       return;
     }
-    // In production, this would send to an API endpoint
-    setSubmitted(true);
+
+    setSending(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to send. Please email joshua@digitaltechnologysolutions.co directly."
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleChange = (
@@ -291,13 +317,19 @@ export default function ContactForm() {
                   <Button
                     type="submit"
                     size="lg"
-                    disabled={!canProceed()}
+                    disabled={!canProceed() || sending}
                   >
-                    {step < TOTAL_STEPS
-                      ? "Continue"
-                      : "Get My Free Strategy Session"}
+                    {sending
+                      ? "Sending..."
+                      : step < TOTAL_STEPS
+                        ? "Continue"
+                        : "Get My Free Strategy Session"}
                   </Button>
                 </div>
+
+                {error && (
+                  <p className="text-sm text-red-400 mt-3">{error}</p>
+                )}
 
                 <p className="text-xs text-muted-foreground mt-4">
                   100% free &middot; No commitment &middot; Takes 2 minutes
