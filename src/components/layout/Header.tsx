@@ -56,7 +56,7 @@ export default function Header() {
 
           <div className="hidden md:block">
             <Button href="/contact" size="sm">
-              Get Started
+              Get My Free Call
             </Button>
           </div>
 

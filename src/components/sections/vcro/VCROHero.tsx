@@ -38,7 +38,7 @@ export default function VCROHero() {
       <FadeIn delay={0.22}>
         <div className="flex gap-3.5 mt-10 flex-wrap justify-center">
           <Button href="/contact" size="lg">
-            Book a Free Discovery Call
+            Get My Free Discovery Call
           </Button>
           <Button href="#agents" variant="ghost" size="lg">
             See How It Works

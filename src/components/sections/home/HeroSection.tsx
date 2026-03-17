@@ -33,26 +33,27 @@ export default function HeroSection() {
 
             <FadeIn delay={0.3}>
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.92] tracking-wide mb-6 md:mb-8">
-                Your Competitors Are Already Using AI.
+                AI That Grows
                 <br />
-                <span className="text-accent">Are You?</span>
+                <span className="text-accent">Your Revenue.</span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.5}>
               <p className="text-lg md:text-xl text-muted leading-relaxed max-w-2xl mb-8 md:mb-12">
-                We build the teams, integrate the systems, and develop the
-                platforms that put you ahead&mdash;not behind.
+                We build AI teams, integrate smart systems, and deploy platforms
+                that turn your data into revenue&mdash;starting in days, not
+                months.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.7}>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button href="/services" size="lg">
-                  See How We Do It
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <Button href="/contact" size="lg">
+                  Get My Free Strategy Call
                 </Button>
                 <Button href="/vcro" variant="ghost" size="lg">
-                  Let Us Build Your Virtual CRO
+                  See How It Works
                 </Button>
                 <motion.button
                   whileHover={{ scale: 1.08 }}
@@ -72,6 +73,9 @@ export default function HeroSection() {
                   </span>
                 </motion.button>
               </div>
+              <p className="text-xs text-muted-foreground mt-4">
+                100% free &middot; No commitment &middot; Takes 30 minutes
+              </p>
             </FadeIn>
           </div>
 

@@ -61,10 +61,10 @@ export default function VCROPromo() {
             <FadeIn delay={0.2}>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button href="/vcro" size="lg">
-                  Explore Virtual CRO
+                  Show Me How It Works
                 </Button>
                 <Button href="/contact" variant="ghost" size="lg">
-                  Book a Free Call
+                  Get My Free Call
                 </Button>
               </div>
             </FadeIn>

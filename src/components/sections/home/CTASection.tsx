@@ -30,12 +30,11 @@ export default function CTASection() {
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button href="/contact" size="lg">
-                Start a Conversation
+                Get My Free Consultation
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-6">
-              No commitment. No jargon. Just a conversation about what is
-              possible.
+              100% free &middot; No commitment &middot; Takes 30 minutes
             </p>
           </FadeIn>
         </div>

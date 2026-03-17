@@ -88,7 +88,7 @@ export default function VCROPricing() {
               nothing more, nothing less.
             </p>
             <Button href="/contact" size="lg">
-              Schedule a Discovery Call
+              Get My Custom Quote
             </Button>
           </div>
         </FadeIn>

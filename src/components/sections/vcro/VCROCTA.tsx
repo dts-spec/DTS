@@ -24,11 +24,11 @@ export default function VCROCTA() {
             </p>
             <div className="relative">
               <Button href="/contact" size="lg">
-                Book a Free Call
+                Get My Free Strategy Call
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-3.5 relative">
-              Typically responds within 4 hours
+              100% free &middot; No commitment &middot; Typically responds within 4 hours
             </p>
           </div>
         </FadeIn>
