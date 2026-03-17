@@ -51,8 +51,8 @@ export default function HeroSection() {
                 <Button href="/services" size="lg">
                   See How We Do It
                 </Button>
-                <Button href="/contact" variant="ghost" size="lg">
-                  Book a Call
+                <Button href="/vcro" variant="ghost" size="lg">
+                  Let Us Build Your Virtual CRO
                 </Button>
               </div>
             </FadeIn>
