@@ -43,6 +43,13 @@ export default function VCROChat() {
     }
   }, [open]);
 
+  // Listen for external "open chat" events (e.g. from hero button)
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-vcro-chat", handler);
+    return () => window.removeEventListener("open-vcro-chat", handler);
+  }, []);
+
   const sendMessage = async (text: string) => {
     if (!text.trim() || streaming) return;
 
@@ -131,21 +138,28 @@ export default function VCROChat() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent hover:bg-accent-hover shadow-[0_0_30px_rgba(255,107,0,0.4)] flex items-center justify-center cursor-pointer transition-colors"
+            className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-1.5 cursor-pointer group"
             aria-label="Open Virtual CRO chat"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-            </svg>
+            <span className="relative w-14 h-12 bg-emerald-600 group-hover:bg-emerald-500 flex items-center justify-center transition-all duration-300 shadow-[0_0_24px_rgba(16,185,129,0.35)] group-hover:shadow-[0_0_36px_rgba(16,185,129,0.5)] rounded-2xl rounded-bl-sm">
+              <span className="absolute inset-0 rounded-2xl rounded-bl-sm bg-emerald-400/20 animate-ping" />
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                className="relative z-10"
+              >
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </span>
+            <span className="text-[10px] font-semibold uppercase tracking-widest text-emerald-400 group-hover:text-emerald-300 transition-colors">
+              Chat Now
+            </span>
           </motion.button>
         )}
       </AnimatePresence>
@@ -161,28 +175,29 @@ export default function VCROChat() {
             className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-3rem)] rounded-2xl bg-card border border-border shadow-2xl shadow-black/50 flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-border shrink-0">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-emerald-600/10 shrink-0">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-accent/15 border border-accent/20 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
                   <svg
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2"
-                    className="text-accent"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    className="text-emerald-400"
                   >
-                    <path d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 3 3 3 3 0 0 1-1 5.2V17a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-1.8A3 3 0 0 1 5 10a3 3 0 0 1 3-3V6a4 4 0 0 1 4-4z" />
-                    <path d="M12 2v20" />
+                    <line x1="12" y1="1" x2="12" y2="23" />
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                   </svg>
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-foreground">
                     Virtual CRO
                   </div>
-                  <div className="text-[11px] text-emerald-500 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <div className="text-[11px] text-emerald-400 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     Live Demo
                   </div>
                 </div>
@@ -216,13 +231,13 @@ export default function VCROChat() {
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-3 text-[13px] leading-relaxed ${
                       msg.role === "user"
-                        ? "bg-accent text-white rounded-br-md"
+                        ? "bg-emerald-600 text-white rounded-br-md"
                         : "bg-surface border border-border text-muted rounded-bl-md"
                     }`}
                   >
                     {msg.content}
                     {streaming && i === messages.length - 1 && msg.role === "assistant" && (
-                      <span className="inline-block w-1.5 h-4 bg-accent/60 ml-0.5 animate-pulse" />
+                      <span className="inline-block w-1.5 h-4 bg-emerald-400/60 ml-0.5 animate-pulse" />
                     )}
                   </div>
                 </div>
@@ -237,7 +252,7 @@ export default function VCROChat() {
                   <button
                     key={i}
                     onClick={() => sendMessage(s)}
-                    className="text-[11px] px-3 py-1.5 rounded-full border border-border text-muted hover:border-accent/40 hover:text-accent transition-colors cursor-pointer"
+                    className="text-[11px] px-3 py-1.5 rounded-full border border-border text-muted hover:border-emerald-500/40 hover:text-emerald-400 transition-colors cursor-pointer"
                   >
                     {s}
                   </button>
@@ -258,12 +273,12 @@ export default function VCROChat() {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask the Virtual CRO..."
                   disabled={streaming}
-                  className="flex-1 bg-surface border border-border rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/40 transition-colors disabled:opacity-50"
+                  className="flex-1 bg-surface border border-border rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-emerald-500/40 transition-colors disabled:opacity-50"
                 />
                 <button
                   type="submit"
                   disabled={!input.trim() || streaming}
-                  className="w-9 h-9 rounded-xl bg-accent hover:bg-accent-hover disabled:opacity-30 flex items-center justify-center transition-colors cursor-pointer disabled:cursor-not-allowed shrink-0"
+                  className="w-9 h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-30 flex items-center justify-center transition-colors cursor-pointer disabled:cursor-not-allowed shrink-0"
                   aria-label="Send message"
                 >
                   <svg

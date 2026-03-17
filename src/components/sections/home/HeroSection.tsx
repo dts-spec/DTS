@@ -54,6 +54,23 @@ export default function HeroSection() {
                 <Button href="/vcro" variant="ghost" size="lg">
                   Let Us Build Your Virtual CRO
                 </Button>
+                <motion.button
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => window.dispatchEvent(new Event("open-vcro-chat"))}
+                  className="flex flex-col items-center gap-1.5 cursor-pointer group"
+                >
+                  <span className="relative w-14 h-12 bg-emerald-600 group-hover:bg-emerald-500 flex items-center justify-center transition-all duration-300 shadow-[0_0_24px_rgba(16,185,129,0.35)] group-hover:shadow-[0_0_36px_rgba(16,185,129,0.5)] rounded-2xl rounded-bl-sm">
+                    <span className="absolute inset-0 rounded-2xl rounded-bl-sm bg-emerald-400/20 animate-ping" />
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" className="relative z-10">
+                      <line x1="12" y1="1" x2="12" y2="23" />
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                  </span>
+                  <span className="text-[11px] font-semibold uppercase tracking-widest text-emerald-400 group-hover:text-emerald-300 transition-colors">
+                    Chat Now
+                  </span>
+                </motion.button>
               </div>
             </FadeIn>
           </div>

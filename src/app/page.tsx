@@ -7,6 +7,7 @@ import CaseStudiesPreview from "@/components/sections/home/CaseStudiesPreview";
 import VCROPromo from "@/components/sections/home/VCROPromo";
 import StatsSection from "@/components/sections/home/StatsSection";
 import CTASection from "@/components/sections/home/CTASection";
+import VCROChat from "@/components/sections/vcro/VCROChat";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <VCROPromo />
       <StatsSection />
       <CTASection />
+      <VCROChat />
     </>
   );
 }
