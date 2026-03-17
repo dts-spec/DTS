@@ -9,6 +9,7 @@ import VCROTestimonials from "@/components/sections/vcro/VCROTestimonials";
 import VCROPricing from "@/components/sections/vcro/VCROPricing";
 import VCROFAQ from "@/components/sections/vcro/VCROFAQ";
 import VCROCTA from "@/components/sections/vcro/VCROCTA";
+import VCROChat from "@/components/sections/vcro/VCROChat";
 
 export const metadata: Metadata = {
   title: "Virtual CRO",
@@ -29,6 +30,7 @@ export default function VCROPage() {
       <VCROPricing />
       <VCROFAQ />
       <VCROCTA />
+      <VCROChat />
     </>
   );
 }
