@@ -5,7 +5,7 @@ import VCROWhyChoose from "@/components/sections/vcro/VCROWhyChoose";
 import VCROIntegrations from "@/components/sections/vcro/VCROIntegrations";
 import VCROAgents from "@/components/sections/vcro/VCROAgents";
 import VCROProcess from "@/components/sections/vcro/VCROProcess";
-import VCROTestimonials from "@/components/sections/vcro/VCROTestimonials";
+
 import VCROPricing from "@/components/sections/vcro/VCROPricing";
 import VCROFAQ from "@/components/sections/vcro/VCROFAQ";
 import VCROCTA from "@/components/sections/vcro/VCROCTA";
@@ -26,7 +26,7 @@ export default function VCROPage() {
       <VCROWhyChoose />
       <VCROAgents />
       <VCROProcess />
-      <VCROTestimonials />
+
       <VCROPricing />
       <VCROFAQ />
       <VCROCTA />

@@ -49,8 +49,8 @@ export default function HeroSection() {
 
             <FadeIn delay={0.7}>
               <div className="flex flex-col sm:flex-row items-center gap-4">
-                <Button href="/contact" size="lg">
-                  Get My Free Strategy Call
+                <Button href="/vcro" size="lg">
+                  Virtual CRO
                 </Button>
                 <Button href="/vcro" variant="ghost" size="lg">
                   See How It Works
